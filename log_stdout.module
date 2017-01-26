@@ -13,7 +13,7 @@ function log_level() {
 function log_stdout_watchdog(array $log_entry) {
   $log_level = log_level();
 
-  if ($log_level && ($log_level < $log_entry['severity'])) {
+  if (($log_level !== false) && ($log_level < $log_entry['severity'])) {
     return;
   } else {
     if ($log_entry['severity'] < WATCHDOG_WARNING) {
